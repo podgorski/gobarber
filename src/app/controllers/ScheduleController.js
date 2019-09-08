@@ -36,23 +36,13 @@ class ScheduleController {
                 },
             },
             order: ['date'],
-            // limit: 20,
-            // offset: (page - 1) * 20,
-            // attributes: ['id', 'date'],
-            // include: [
-            //     {
-            //         model: User,
-            //         as: 'provider',
-            //         attributes: ['id', 'name'],
-            //         include: [
-            //             {
-            //                 model: File,
-            //                 as: 'avatar',
-            //                 attributes: ['id', 'path', 'url'],
-            //             },
-            //         ],
-            //     },
-            // ],
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['name'],
+                },
+            ],
         });
 
         return res.json(appointments);
