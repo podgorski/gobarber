@@ -29,7 +29,11 @@ class App {
         this.server.use(Sentry.Handlers.requestHandler());
         this.server.use(helmet());
         this.server.use(cors()); // DEV
-        // this.server.use(cors({origin : "https://gobarber.com.br"})); // PRODUCTION
+        // this.server.use(
+        //     cors({
+        //         origin: process.env.FRONT_URL,
+        //     })
+        // ); // PRODUCTION
         this.server.use(express.json());
         this.server.use(
             '/files',
@@ -46,7 +50,7 @@ class App {
                         }),
                     }),
                     windowMs: 1000 * 60 * 15,
-                    max: 100, // Número de acessos permitidos dentro do tempo definido em windowMs
+                    max: 100, // Número de requisições permitidas dentro do tempo definido em windowMs
                 })
             );
         }
