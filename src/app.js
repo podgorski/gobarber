@@ -50,7 +50,7 @@ class App {
                         }),
                     }),
                     windowMs: 1000 * 60 * 15,
-                    max: 100, // Número de requisições permitidas dentro do tempo definido em windowMs
+                    max: 150, // Número de requisições permitidas dentro do tempo definido em windowMs
                 })
             );
         }
